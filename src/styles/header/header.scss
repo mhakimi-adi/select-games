@@ -1,0 +1,26 @@
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    margin: 10px;
+    background-color: #292f35;
+    border-radius: 20px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  .title {
+    font-family: 'Press Start 2P';
+    font-size: 36px;
+    color: #FFFFFF;
+  }
+  
+  .logo {
+    width: 50px;
+    height: 50px;
+  }
+  
+  .logo svg {
+    width: 100%;
+    height: 100%;
+  }
