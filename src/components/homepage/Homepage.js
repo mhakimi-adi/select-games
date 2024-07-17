@@ -22,22 +22,50 @@ const HomePage = () => {
 
   return (
     <div className="homepage">
-      <div className={`box ${expandedBox === 'box1' ? 'expanded' : ''}`}>
-        {renderBoxContent(<FaMountain />, 'Summer Olympics', 'Bring fame to your name', 'box1')}
-        {expandedBox === 'box1' && <div className="details">Details about Summer Olympics</div>}
-      </div>
-      <div className={`box ${expandedBox === 'box2' ? 'expanded' : ''}`}>
-        {renderBoxContent(<FaTrophy />, 'Leaderboard', 'See how you rank', 'box2')}
-        {expandedBox === 'box2' && <div className="details">Details about Leaderboard</div>}
-      </div>
-      <div className={`box ${expandedBox === 'box3' ? 'expanded' : ''}`}>
-        {renderBoxContent(<FaCamera />, 'Photos', 'Witness the fun', 'box3')}
-        {expandedBox === 'box3' && <div className="details">Details about Photos</div>}
-      </div>
-      <div className={`box ${expandedBox === 'box4' ? 'expanded' : ''}`}>
-        {renderBoxContent(<FaBook />, 'Archives', 'Revisit our greatest hits', 'box4')}
-        {expandedBox === 'box4' && <div className="details">Details about Archives</div>}
-      </div>
+      {expandedBox === null && (
+        <>
+          <div className={`box`} onClick={() => handleExpand('box1')}>
+            {renderBoxContent(<FaMountain />, 'Summer Olympics', 'Bring fame to your name', 'box1')}
+          </div>
+          <div className={`box`} onClick={() => handleExpand('box2')}>
+            {renderBoxContent(<FaTrophy />, 'Leaderboard', 'See how you rank', 'box2')}
+          </div>
+          <div className={`box`} onClick={() => handleExpand('box3')}>
+            {renderBoxContent(<FaCamera />, 'Photos', 'Witness the fun', 'box3')}
+          </div>
+          <div className={`box`} onClick={() => handleExpand('box4')}>
+            {renderBoxContent(<FaBook />, 'Archives', 'Revisit our greatest hits', 'box4')}
+          </div>
+        </>
+      )}
+      {expandedBox !== null && (
+        <div className={`box expanded`}>
+          {expandedBox === 'box1' && (
+            <>
+              {renderBoxContent(<FaMountain />, 'Summer Olympics', 'Bring fame to your name', 'box1')}
+              <div className="details">Details about Summer Olympics</div>
+            </>
+          )}
+          {expandedBox === 'box2' && (
+            <>
+              {renderBoxContent(<FaTrophy />, 'Leaderboard', 'See how you rank', 'box2')}
+              <div className="details">Details about Leaderboard</div>
+            </>
+          )}
+          {expandedBox === 'box3' && (
+            <>
+              {renderBoxContent(<FaCamera />, 'Photos', 'Witness the fun', 'box3')}
+              <div className="details">Details about Photos</div>
+            </>
+          )}
+          {expandedBox === 'box4' && (
+            <>
+              {renderBoxContent(<FaBook />, 'Archives', 'Revisit our greatest hits', 'box4')}
+              <div className="details">Details about Archives</div>
+            </>
+          )}
+        </div>
+      )}
     </div>
   );
 };
