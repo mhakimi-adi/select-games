@@ -1,3 +1,4 @@
+// src/HomePage.js
 import React, { useState } from 'react';
 import '../../styles/homepage/homepage.scss';
 import { FaMountain, FaTrophy, FaCamera, FaBook } from 'react-icons/fa';
@@ -10,30 +11,30 @@ const HomePage = () => {
   };
 
   const renderBoxContent = (icon, title, description, box) => (
-    <>
+    <div className="content">
       {icon}
       <h2>{title}</h2>
       <p>{description}</p>
       <button onClick={() => handleExpand(box)}>
         {expandedBox === box ? 'Back' : 'Go'}
       </button>
-    </>
+    </div>
   );
 
   return (
     <div className="homepage">
       {expandedBox === null && (
         <>
-          <div className={`box`} onClick={() => handleExpand('box1')}>
+          <div className="box" onClick={() => handleExpand('box1')}>
             {renderBoxContent(<FaMountain />, 'Summer Olympics', 'Bring fame to your name', 'box1')}
           </div>
-          <div className={`box`} onClick={() => handleExpand('box2')}>
+          <div className="box" onClick={() => handleExpand('box2')}>
             {renderBoxContent(<FaTrophy />, 'Leaderboard', 'See how you rank', 'box2')}
           </div>
-          <div className={`box`} onClick={() => handleExpand('box3')}>
+          <div className="box" onClick={() => handleExpand('box3')}>
             {renderBoxContent(<FaCamera />, 'Photos', 'Witness the fun', 'box3')}
           </div>
-          <div className={`box`} onClick={() => handleExpand('box4')}>
+          <div className="box" onClick={() => handleExpand('box4')}>
             {renderBoxContent(<FaBook />, 'Archives', 'Revisit our greatest hits', 'box4')}
           </div>
         </>
